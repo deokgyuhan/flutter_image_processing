@@ -53,3 +53,7 @@ git 명령어 참조
   Uploading... (16.8s)
   Uncompressed package archive is too large (size > 104857600).
   -> x86 제외
+
+* 디바이스에 실제 테스트하고 pub.dev에 초기버전 게시하고 README 간단히 작성한다음에 버전업하면서 필터 계속 추가예정이라고 명시하고 다시 게시
+* 안드로이드 12 디바이스 테스트 성공...
+* 일단 pub.dev에 초기 버전 게시

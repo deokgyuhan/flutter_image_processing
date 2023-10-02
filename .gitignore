@@ -30,4 +30,4 @@ migrate_working_dir/
 build/
 /ios/opencv2.framework/
 /src/include/
-/android/src/main/jniLibs/
+#/android/src/main/jniLibs/

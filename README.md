@@ -97,4 +97,24 @@ For example, see `sumAsync` in `lib/flutter_image_processing.dart`.
 
 * chmod 755 init.sh -> chmod 755 update_ios.sh -> init.sh 실행
 
+* ios에 opencv.framework 삭제
 
+* .gitignore에 아래 디렉토리 추가후 커밋
+  /ios/opencv2.framework/
+  /src/include/
+  /android/src/main/jniLibs/
+
+* 이제 순차적으로   /src/include/, /android/src/main/jniLibs/ 주석처리하고 github 커밋
+
+git 명령어 참조
+```
+>  git lfs install
+>  git lfs track "*.so"
+>  git add .gitattributes
+
+>  git lfs track "*.h"
+>  git lfs track "*.hpp"
+>  git add .gitattributes
+```
+
+* 먼저 android jni lib *.so를 커밋 

@@ -49,4 +49,7 @@ git 명령어 참조
 
 * 시뮬레이터 테스트 성공... 디바이스도 테스트해보자 지금 그냥 한번 pub publish 테스트해보자
 
-
+* Do you want to publish flutter_image_processing 0.0.1 to https://pub.dev (y/N)? y
+  Uploading... (16.8s)
+  Uncompressed package archive is too large (size > 104857600).
+  -> x86 제외

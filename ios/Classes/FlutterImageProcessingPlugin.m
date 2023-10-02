@@ -1,4 +1,4 @@
-#import "FlutterCameraCalibrationPlugin.h"
+#import "FlutterImageProcessingPlugin.h"
 #if __has_include(<flutter_image_processing/flutter_image_processing-Swift.h>)
 #import <flutter_image_processing/flutter_image_processing-Swift.h>
 #else

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:flutter_image_processing/flutter_image_processing.dart' as flutter_image_processing;
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    home: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -15,57 +15,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late int sumResult;
-  late Future<int> sumAsyncResult;
+  late String version;
 
   @override
   void initState() {
     super.initState();
-    sumResult = flutter_image_processing.sum(1, 2);
-    sumAsyncResult = flutter_image_processing.sumAsync(3, 4);
+    version = flutter_image_processing.opencvVersion();
   }
 
   @override
   Widget build(BuildContext context) {
     const textStyle = TextStyle(fontSize: 25);
     const spacerSmall = SizedBox(height: 10);
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Native Packages'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('flutter_image_processing example'
         ),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                const Text(
-                  'This calls a native function through FFI that is shipped as source in the package. '
-                  'The native code is built as part of the Flutter Runner build.',
-                  style: textStyle,
-                  textAlign: TextAlign.center,
-                ),
-                spacerSmall,
-                Text(
-                  'sum(1, 2) = $sumResult',
-                  style: textStyle,
-                  textAlign: TextAlign.center,
-                ),
-                spacerSmall,
-                FutureBuilder<int>(
-                  future: sumAsyncResult,
-                  builder: (BuildContext context, AsyncSnapshot<int> value) {
-                    final displayValue =
-                        (value.hasData) ? value.data : 'loading';
-                    return Text(
-                      'await sumAsync(3, 4) = $displayValue',
-                      style: textStyle,
-                      textAlign: TextAlign.center,
-                    );
-                  },
-                ),
-              ],
-            ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              spacerSmall,
+              Text(
+                'OpenCV Version: $version',
+                style: textStyle,
+                textAlign: TextAlign.center,
+              ),
+            ],
           ),
         ),
       ),

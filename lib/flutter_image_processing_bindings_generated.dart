@@ -26,44 +26,41 @@ class FlutterImageProcessingBindings {
           lookup)
       : _lookup = lookup;
 
-  /// A very short-lived native function.
-  ///
-  /// For very short-lived functions, it is fine to call them on the main isolate.
-  /// They will block the Dart execution while running the native function, so
-  /// only do this for native functions which are guaranteed to be short-lived.
-  int sum(
-    int a,
-    int b,
+  ffi.Pointer<ffi.Char> opencvVersion() {
+    return _opencvVersion();
+  }
+
+  late final _opencvVersionPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
+          'opencvVersion');
+  late final _opencvVersion =
+      _opencvVersionPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
+
+  void GaussianBlur(
+    ffi.Pointer<ffi.Char> path,
   ) {
-    return _sum(
-      a,
-      b,
+    return _GaussianBlur(
+      path,
     );
   }
 
-  late final _sumPtr =
-      _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.IntPtr, ffi.IntPtr)>>(
-          'sum');
-  late final _sum = _sumPtr.asFunction<int Function(int, int)>();
+  late final _GaussianBlurPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'GaussianBlur');
+  late final _GaussianBlur =
+      _GaussianBlurPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
-  /// A longer lived native function, which occupies the thread calling it.
-  ///
-  /// Do not call these kind of native functions in the main isolate. They will
-  /// block Dart execution. This will cause dropped frames in Flutter applications.
-  /// Instead, call these native functions on a separate isolate.
-  int sum_long_running(
-    int a,
-    int b,
+  void CannyDetector(
+    ffi.Pointer<ffi.Char> path,
   ) {
-    return _sum_long_running(
-      a,
-      b,
+    return _CannyDetector(
+      path,
     );
   }
 
-  late final _sum_long_runningPtr =
-      _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.IntPtr, ffi.IntPtr)>>(
-          'sum_long_running');
-  late final _sum_long_running =
-      _sum_long_runningPtr.asFunction<int Function(int, int)>();
+  late final _CannyDetectorPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'CannyDetector');
+  late final _CannyDetector =
+      _CannyDetectorPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 }

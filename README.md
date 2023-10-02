@@ -93,3 +93,8 @@ For example, see `sumAsync` in `lib/flutter_image_processing.dart`.
 
 * 기본 필터 가우시안/블러 만들어서 오늘중에 일단 게시하도록.. 다만 개발중으로 README에 안내하고
 
+* 개발환경 마무리하고 flutter pub run ffigen --config ffigen.yaml 실행
+
+* chmod 755 init.sh -> chmod 755 update_ios.sh -> init.sh 실행
+
+

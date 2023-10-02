@@ -1,17 +1,17 @@
-# The Flutter tooling requires that developers have CMake 3.10 or later
-# installed. You should not increase this version, as doing so will cause
-# the plugin to fail to compile for some customers of the plugin.
 cmake_minimum_required(VERSION 3.10)
 
-project(flutter_image_processing_library VERSION 0.0.1 LANGUAGES C)
+project(flutter_image_processing LANGUAGES C CXX)
 
-add_library(flutter_image_processing SHARED
-  "flutter_image_processing.c"
+include_directories(include)
+add_library(lib_opencv SHARED IMPORTED)
+set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../android/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so)
+
+add_library(
+    flutter_image_processing
+    SHARED
+    flutter_image_processing.cpp
 )
 
-set_target_properties(flutter_image_processing PROPERTIES
-  PUBLIC_HEADER flutter_image_processing.h
-  OUTPUT_NAME "flutter_image_processing"
-)
+set (BUILD_WRITERS ON)
 
-target_compile_definitions(flutter_image_processing PUBLIC DART_SHARED_LIB)
+target_link_libraries(flutter_image_processing lib_opencv)

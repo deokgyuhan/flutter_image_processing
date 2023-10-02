@@ -29,5 +29,5 @@ migrate_working_dir/
 .packages
 build/
 /ios/opencv2.framework/
-/src/include/
+#/src/include/
 #/android/src/main/jniLibs/

@@ -117,4 +117,5 @@ git 명령어 참조
 >  git add .gitattributes
 ```
 
-* 먼저 android jni lib *.so를 커밋 
+* 먼저 /android/src/main/jniLibs/ 주석처리하고 lib *.so를 커밋 
+* 다음 /src/include/ 주석처리하고 *.h *.hpp 커밋, 이때는 50~100개씩 나눠서 커밋

@@ -1,8 +1,6 @@
 import 'dart:ffi';
 import 'dart:io';
 import 'package:ffi/ffi.dart';
-import 'package:flutter/material.dart';
-
 import 'flutter_image_processing_bindings_generated.dart';
 
 const String _libName = 'flutter_image_processing';
@@ -26,10 +24,10 @@ final FlutterImageProcessingBindings _bindings = FlutterImageProcessingBindings(
 
 String opencvVersion() => _bindings.opencvVersion().cast<Utf8>().toDartString();
 
-Future<void> GaussianBlur(String imagePath) async {
+Future<void> gaussianBlur(String imagePath) async {
   _bindings.GaussianBlur(imagePath.toNativeUtf8().cast<Char>());
 }
 
-Future<void> CannyDetector(String imagePath) async {
+Future<void> cannyDetector(String imagePath) async {
   _bindings.CannyDetector(imagePath.toNativeUtf8().cast<Char>());
 }

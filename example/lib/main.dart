@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                     final imageFile = await _picker.pickImage(source: ImageSource.gallery);
                     final imagePath = imageFile?.path ?? "none";
 
-                    await flutter_image_processing.GaussianBlur(imagePath);
+                    await flutter_image_processing.gaussianBlur(imagePath);
 
                     setState(() {
                       _img = Image.file(File(imagePath));
@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
                   final imageFile = await _picker.pickImage(source: ImageSource.gallery);
                   final imagePath = imageFile?.path ?? "none";
 
-                  await flutter_image_processing.CannyDetector(imagePath);
+                  await flutter_image_processing.cannyDetector(imagePath);
 
                   setState(() {
                     _img = Image.file(File(imagePath));

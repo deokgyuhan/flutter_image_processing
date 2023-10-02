@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_processing/flutter_image_processing.dart' as flutter_image_processing;
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,7 +17,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final ImagePicker _picker = ImagePicker();
   late String version;
+  Image _img = Image.asset('assets/img/default.jpg');
 
   @override
   void initState() {
@@ -43,6 +47,36 @@ class _MyAppState extends State<MyApp> {
                 style: textStyle,
                 textAlign: TextAlign.center,
               ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                  onPressed: () async {
+                    final imageFile = await _picker.pickImage(source: ImageSource.gallery);
+                    final imagePath = imageFile?.path ?? "none";
+
+                    await flutter_image_processing.GaussianBlur(imagePath);
+
+                    setState(() {
+                      _img = Image.file(File(imagePath));
+                    });
+                  },
+                  child: Text("Run GaussianBlur"),
+                ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: () async {
+                  final imageFile = await _picker.pickImage(source: ImageSource.gallery);
+                  final imagePath = imageFile?.path ?? "none";
+
+                  await flutter_image_processing.CannyDetector(imagePath);
+
+                  setState(() {
+                    _img = Image.file(File(imagePath));
+                  });
+                },
+                child: Text("Run CannyDetector"),
+              ),
+              SizedBox(height: 20,),
+              Center(child: _img),
             ],
           ),
         ),

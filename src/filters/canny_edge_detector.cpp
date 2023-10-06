@@ -1,4 +1,4 @@
-#include "flutter_image_processing.h"
+#include "../flutter_image_processing.h"
 
 #include <iostream>
 #include <opencv2/core.hpp>

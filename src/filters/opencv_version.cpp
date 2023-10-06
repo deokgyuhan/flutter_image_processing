@@ -10,10 +10,9 @@ using namespace std;
 extern "C"
 {
     FUNCTION_ATTRIBUTE
-    void GaussianBlur(char *path) {
-        Mat img = imread(path);
-        Mat temp;
-        GaussianBlur(img, temp, Size(75, 75), 0, 0);
-        imwrite(path, temp);
+    const char* opencvVersion()
+    {
+        return CV_VERSION;
     }
 }
+

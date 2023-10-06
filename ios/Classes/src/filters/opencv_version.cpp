@@ -15,3 +15,4 @@ extern "C"
         return CV_VERSION;
     }
 }
+

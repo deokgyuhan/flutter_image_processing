@@ -44,6 +44,6 @@
 //    }
 //}
 
-#include "opencv_version.cpp"
-#include "gaussian_blur.cpp"
-#include "canny_edge_detector.cpp"
+#include "filters/opencv_version.cpp"
+#include "filters/gaussian_blur.cpp"
+#include "filters/canny_edge_detector.cpp"

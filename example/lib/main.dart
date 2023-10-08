@@ -76,11 +76,43 @@ class _MyAppState extends State<MyApp> {
                 child: Text("Run CannyDetector"),
               ),
               SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: () async {
+                  final imageFile = await _picker.pickImage(source: ImageSource.gallery);
+                  final imagePath = imageFile?.path ?? "none";
+
+                  await flutter_image_processing.medianBlur(imagePath);
+
+                  setState(() {
+                    _img = Image.file(File(imagePath));
+                  });
+                },
+                child: Text("Run medianBlur"),
+              ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: () async {
+                  final imageFile = await _picker.pickImage(source: ImageSource.gallery);
+                  final imagePath = imageFile?.path ?? "none";
+
+                  await flutter_image_processing.bilateralFilter(imagePath);
+
+                  setState(() {
+                    _img = Image.file(File(imagePath));
+                  });
+                },
+                child: Text("Run bilateralFilter"),
+              ),
+              SizedBox(height: 20,),
               Center(child: _img),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void test() {
+    List<String> a;
   }
 }

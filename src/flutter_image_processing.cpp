@@ -47,3 +47,5 @@
 #include "filters/opencv_version.cpp"
 #include "filters/gaussian_blur.cpp"
 #include "filters/canny_edge_detector.cpp"
+#include "filters/median_blur.cpp"
+#include "filters/bilateral_filter.cpp"

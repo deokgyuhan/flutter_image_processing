@@ -63,4 +63,32 @@ class FlutterImageProcessingBindings {
           'CannyDetector');
   late final _CannyDetector =
       _CannyDetectorPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  void medianBlur(
+    ffi.Pointer<ffi.Char> path,
+  ) {
+    return _medianBlur(
+      path,
+    );
+  }
+
+  late final _medianBlurPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'medianBlur');
+  late final _medianBlur =
+      _medianBlurPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  void bilateralFilter(
+    ffi.Pointer<ffi.Char> path,
+  ) {
+    return _bilateralFilter(
+      path,
+    );
+  }
+
+  late final _bilateralFilterPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
+          'bilateralFilter');
+  late final _bilateralFilter =
+      _bilateralFilterPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 }

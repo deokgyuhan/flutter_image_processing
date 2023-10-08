@@ -1,6 +1,10 @@
+## 0.0.4
+
+* Add "medianBlur" and "bilateralFilter" functions. 
+
 ## 0.0.3
 
-* Refactoring code and file.
+* Refactor code and file.
 
 ## 0.0.2
 

@@ -31,3 +31,11 @@ Future<void> gaussianBlur(String imagePath) async {
 Future<void> cannyDetector(String imagePath) async {
   _bindings.CannyDetector(imagePath.toNativeUtf8().cast<Char>());
 }
+
+Future<void> medianBlur(String imagePath) async {
+  _bindings.medianBlur(imagePath.toNativeUtf8().cast<Char>());
+}
+
+Future<void> bilateralFilter(String imagePath) async {
+  _bindings.bilateralFilter(imagePath.toNativeUtf8().cast<Char>());
+}

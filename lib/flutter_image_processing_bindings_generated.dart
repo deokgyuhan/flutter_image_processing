@@ -91,4 +91,46 @@ class FlutterImageProcessingBindings {
           'bilateralFilter');
   late final _bilateralFilter =
       _bilateralFilterPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  void erosion(
+    ffi.Pointer<ffi.Char> path,
+    int erosion_type,
+    int erosion_elem,
+    int erosion_size,
+  ) {
+    return _erosion(
+      path,
+      erosion_type,
+      erosion_elem,
+      erosion_size,
+    );
+  }
+
+  late final _erosionPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ffi.Char>, ffi.Int, ffi.Int, ffi.Int)>>('erosion');
+  late final _erosion = _erosionPtr
+      .asFunction<void Function(ffi.Pointer<ffi.Char>, int, int, int)>();
+
+  void dilation(
+    ffi.Pointer<ffi.Char> path,
+    int dilation_type,
+    int dilation_elem,
+    int dilation_size,
+  ) {
+    return _dilation(
+      path,
+      dilation_type,
+      dilation_elem,
+      dilation_size,
+    );
+  }
+
+  late final _dilationPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ffi.Char>, ffi.Int, ffi.Int, ffi.Int)>>('dilation');
+  late final _dilation = _dilationPtr
+      .asFunction<void Function(ffi.Pointer<ffi.Char>, int, int, int)>();
 }

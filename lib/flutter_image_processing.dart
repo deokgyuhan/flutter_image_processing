@@ -39,3 +39,21 @@ Future<void> medianBlur(String imagePath) async {
 Future<void> bilateralFilter(String imagePath) async {
   _bindings.bilateralFilter(imagePath.toNativeUtf8().cast<Char>());
 }
+
+Future<void> erosion(
+    String imagePath, {
+    int erosion_type = 0,
+    int erosion_elem = 0,
+    int erosion_size = 0,
+    }) async {
+  _bindings.erosion(imagePath.toNativeUtf8().cast<Char>(), erosion_type, erosion_elem, erosion_size);
+}
+
+Future<void> dilation(
+    String imagePath, {
+    int dilation_type = 0,
+    int dilation_elem = 0,
+    int dilation_size = 0,
+    }) async {
+  _bindings.bilateralFilter(imagePath.toNativeUtf8().cast<Char>());
+}

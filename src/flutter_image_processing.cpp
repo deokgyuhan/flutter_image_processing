@@ -49,3 +49,5 @@
 #include "filters/canny_edge_detector.cpp"
 #include "filters/median_blur.cpp"
 #include "filters/bilateral_filter.cpp"
+#include "filters/erosion.cpp"
+#include "filters/dilation.cpp"
